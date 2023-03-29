@@ -15,7 +15,9 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (context) {},
-      child: MyApp(isLogin: cekLogin),
+      child: MyApp(
+        isLogin: cekLogin,
+      ),
     ),
   );
 }
