@@ -1,4 +1,4 @@
 class ConstHelper {
-  static const keyLogin = "pref_login";
+  static const keyLogin = "key_login";
   static const checkLogin = "isLogin";
 }

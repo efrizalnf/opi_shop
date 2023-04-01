@@ -3,6 +3,7 @@
     "modules": [
         "splash",
         "login",
-        "home"
+        "home",
+        "dashboard"
     ]
 }
