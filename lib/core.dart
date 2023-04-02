@@ -22,3 +22,5 @@ export 'state_util.dart';
 export 'package:OpiShop/module/dashboard/widget/dashboard_appbar.dart';
 export 'package:OpiShop/module/dashboard/widget/dashboard_header.dart';
 export 'package:OpiShop/module/dashboard/widget/dashboard_body.dart';
+export 'package:OpiShop/module/dashboard/model/product.dart';
+export 'package:OpiShop/utils/failure.dart';

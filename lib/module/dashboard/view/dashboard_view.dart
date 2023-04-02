@@ -15,7 +15,9 @@ class DashboardView extends StatefulWidget {
           DashboardHeader(
               pageController: controller.pageController,
               tabController: controller.tabController),
-          const DashboardGrid(),
+          DashboardGrid(
+            products: controller.products,
+          ),
         ],
       ),
     );
