@@ -1,5 +1,10 @@
+import 'package:OpiShop/module/dashboard/view/responsive.dart/mobile_dashboard.dart';
+import 'package:OpiShop/module/dashboard/view/responsive.dart/responsive_layout.dart';
+import 'package:OpiShop/module/dashboard/view/responsive.dart/tablet_dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:OpiShop/core.dart';
+
+import 'responsive.dart/desktop_dashboard.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
@@ -7,20 +12,10 @@ class DashboardView extends StatefulWidget {
   Widget build(context, DashboardController controller) {
     controller.view = this;
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: const DashboardAppBar(),
-      body: Column(
-        children: [
-          DashboardHeader(
-              pageController: controller.pageController,
-              tabController: controller.tabController),
-          DashboardGrid(
-            products: controller.products,
-          ),
-        ],
-      ),
-    );
+    return const ResponsiveLayout(
+        mobileDashboard: MobileDashboard(),
+        tabletDashboard: TabletDashboard(),
+        desktopDashboard: DekstopDashboard());
   }
 
   @override
