@@ -1,4 +1,4 @@
-import 'package:OpiShop/module/dashboard/view/dashboard_view.dart';
+import 'package:OpiShop/module/home/view/home_view.dart';
 import 'package:OpiShop/shared/theme/theme_dark.dart';
 import 'package:OpiShop/state_util.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: Get.navigatorKey,
       // home: isLogin == true ? const HomeView() : const LoginView(),
-      home: const DashboardView(),
+      home: const HomeView(),
     );
   }
 }

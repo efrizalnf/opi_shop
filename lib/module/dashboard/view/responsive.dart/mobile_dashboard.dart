@@ -15,7 +15,6 @@ class MobileDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: const DashboardAppBar(),
       body: CustomScrollView(
         slivers: [
           const DashboardAppBar(),

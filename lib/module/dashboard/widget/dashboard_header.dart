@@ -5,11 +5,16 @@ import 'package:OpiShop/utils/color_lib.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DashboardHeader extends StatelessWidget {
-  const DashboardHeader(
+  DashboardHeader(
       {super.key, required this.pageController, required this.tabController});
-
   final PageController pageController;
   final TabController tabController;
+  final List<String> imageCategories = [
+    'https://api.lorem.space/image/watch?w=345&h=180&r=',
+    'https://api.lorem.space/image/fashion?w=345&h=180&r=',
+    'https://api.lorem.space/image/shoes?w=345&h=180&r=',
+    'https://api.lorem.space/image/furniture?w=345&h=180&r=',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +42,7 @@ class DashboardHeader extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(6),
                       child: Image.network(
-                        "https://picsum.photos/id/${index + 16}/345/180",
+                        imageCategories[index],
                         width: Get.width * 0.92,
                         height: double.infinity,
                         fit: BoxFit.fill,

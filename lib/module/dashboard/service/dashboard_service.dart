@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:OpiShop/core.dart';
+import 'package:OpiShop/utils/failure.dart';
 import 'package:http/http.dart' as http;
 
 class DashboardService {
