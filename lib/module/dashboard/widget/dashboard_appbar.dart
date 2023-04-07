@@ -11,7 +11,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
+    return SliverAppBar(
       // tinggi dari title ditentukan oleh toolbarHeight
       // maka isi nilai toolbarHeight sama dengan tinggi dari appbar
       toolbarHeight: 106,

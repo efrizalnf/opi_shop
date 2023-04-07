@@ -1,6 +1,6 @@
-import 'package:OpiShop/module/dashboard/model/product.dart';
-import 'package:OpiShop/utils/color_lib.dart';
+import 'package:OpiShop/core.dart';
 import 'package:flutter/material.dart';
+import 'package:OpiShop/utils/color_lib.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DashboardGrid extends StatelessWidget {
@@ -9,15 +9,9 @@ class DashboardGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Column(
-        children: [
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1 / 1.03, crossAxisCount: 2),
-              itemBuilder: (context, index) => Column(
+    return SliverGrid(
+      delegate: SliverChildBuilderDelegate(
+          (context, index) => Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ClipRRect(
@@ -46,11 +40,9 @@ class DashboardGrid extends StatelessWidget {
                   )
                 ],
               ),
-              itemCount: products.length,
-            ),
-          )
-        ],
-      ),
+          childCount: products.length),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 1 / 1.03, crossAxisCount: 2),
     );
   }
 }

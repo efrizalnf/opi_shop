@@ -21,6 +21,10 @@ export 'state_util.dart';
 
 export 'package:OpiShop/module/dashboard/widget/dashboard_appbar.dart';
 export 'package:OpiShop/module/dashboard/widget/dashboard_header.dart';
-export 'package:OpiShop/module/dashboard/widget/dashboard_body.dart';
+export 'package:OpiShop/module/dashboard/widget/dashboard_grid.dart';
 export 'package:OpiShop/module/dashboard/model/product.dart';
 export 'package:OpiShop/utils/failure.dart';
+export 'package:OpiShop/module/dashboard/view/responsive.dart/responsive_layout.dart';
+export 'package:OpiShop/module/dashboard/view/responsive.dart/mobile_dashboard.dart';
+export 'package:OpiShop/module/dashboard/view/responsive.dart/tablet_dashboard.dart';
+export 'package:OpiShop/module/dashboard/view/responsive.dart/desktop_dashboard.dart';

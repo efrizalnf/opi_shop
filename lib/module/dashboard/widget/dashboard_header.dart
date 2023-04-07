@@ -1,5 +1,7 @@
-import 'package:OpiShop/utils/color_lib.dart';
+import 'dart:ui';
+import 'package:OpiShop/core.dart';
 import 'package:flutter/material.dart';
+import 'package:OpiShop/utils/color_lib.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DashboardHeader extends StatelessWidget {
@@ -11,13 +13,19 @@ class DashboardHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Column(
-        children: [
+    return SliverList(
+      delegate: SliverChildListDelegate(
+        [
           SizedBox(
             height: 180,
             child: PageView(
+              scrollBehavior:
+                  // configuring to swipe pageview with several device
+                  ScrollConfiguration.of(context).copyWith(dragDevices: {
+                PointerDeviceKind.touch,
+                PointerDeviceKind.mouse,
+                PointerDeviceKind.trackpad,
+              }),
               onPageChanged: (int pageIndex) {
                 tabController.index = pageIndex;
               },
@@ -30,11 +38,9 @@ class DashboardHeader extends StatelessWidget {
                       borderRadius: BorderRadius.circular(6),
                       child: Image.network(
                         "https://picsum.photos/id/${index + 16}/345/180",
-                        // color: const Color(0xFFCDCDCD),
-                        width: 345,
-                        height: 180,
+                        width: Get.width * 0.92,
+                        height: double.infinity,
                         fit: BoxFit.fill,
-                        // child: Center(child: Text('${index + 1}')),
                       ),
                     ),
                   ),
@@ -45,11 +51,13 @@ class DashboardHeader extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          TabPageSelector(
-            borderStyle: BorderStyle.none,
-            color: '#C3C9CB'.toColor(),
-            controller: tabController,
-            selectedColor: ColorLib.primaryColor,
+          Center(
+            child: TabPageSelector(
+              borderStyle: BorderStyle.none,
+              color: '#C3C9CB'.toColor(),
+              controller: tabController,
+              selectedColor: ColorLib.primaryColor,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),

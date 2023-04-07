@@ -1,41 +1,29 @@
-// import 'package:flutter/material.dart';
-// import 'package:OpiShop/core.dart';
-
-// class DashboardDashboard extends StatefulWidget {
-//   const DashboardDashboard({Key? key}) : super(key: key);
-
-//   Widget build(context, DashboardController controller) {
-//     controller.view = this;
-
-//     return Scaffold(
-//       backgroundColor: Colors.white,
-//       appBar: const DashboardAppBar(),
-//       body: Column(
-//         children: [
-//           DashboardHeader(
-//               pageController: controller.pageController,
-//               tabController: controller.tabController),
-//           DashboardGrid(
-//             products: controller.products,
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-
-//   @override
-//   State<DashboardDashboard> createState() => DashboardController();
-// }
-
+import 'package:OpiShop/core.dart';
 import 'package:flutter/material.dart';
 
 class MobileDashboard extends StatelessWidget {
-  const MobileDashboard({super.key});
+  const MobileDashboard(
+      {super.key,
+      required this.pageController,
+      required this.tabController,
+      required this.products});
+  final PageController pageController;
+  final TabController tabController;
+  final List<Product> products;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.amber,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      // appBar: const DashboardAppBar(),
+      body: CustomScrollView(
+        slivers: [
+          const DashboardAppBar(),
+          DashboardHeader(
+              pageController: pageController, tabController: tabController),
+          DashboardGrid(products: products)
+        ],
+      ),
     );
   }
 }
