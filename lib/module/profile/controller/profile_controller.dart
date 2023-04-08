@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:OpiShop/state_util.dart';
-import '../view/home_view.dart';
+import '../view/profile_view.dart';
 
-class HomeController extends State<HomeView> implements MvcController {
-  static late HomeController instance;
-  late HomeView view;
+class ProfileController extends State<ProfileView> implements MvcController {
+  static late ProfileController instance;
+  late ProfileView view;
 
   @override
   void initState() {
@@ -14,12 +14,6 @@ class HomeController extends State<HomeView> implements MvcController {
 
   @override
   void dispose() => super.dispose();
-
-  int currentIndex = 0;
-  void setCurrentIndex(value) {
-    setState(() {});
-    currentIndex = value;
-  }
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);

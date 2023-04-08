@@ -7,18 +7,22 @@ class DashboardView extends StatefulWidget {
   Widget build(context, DashboardController controller) {
     controller.view = this;
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: const DashboardAppBar(),
-      body: Column(
-        children: [
-          DashboardHeader(
-              pageController: controller.pageController,
-              tabController: controller.tabController),
-          const DashboardGrid(),
-        ],
-      ),
-    );
+    return ResponsiveLayout(
+        mobileDashboard: MobileDashboard(
+          pageController: controller.pageController,
+          tabController: controller.tabController,
+          products: controller.products,
+        ),
+        tabletDashboard: TabletDashboard(
+          pageController: controller.pageController,
+          tabController: controller.tabController,
+          products: controller.products,
+        ),
+        desktopDashboard: DesktopDashboard(
+          pageController: controller.pageController,
+          tabController: controller.tabController,
+          products: controller.products,
+        ));
   }
 
   @override

@@ -4,6 +4,9 @@
         "splash",
         "login",
         "home",
-        "dashboard"
+        "dashboard",
+        "chat",
+        "profile",
+        "carts"
     ]
 }

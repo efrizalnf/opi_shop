@@ -11,13 +11,22 @@ class DashboardAppBar extends StatelessWidget implements PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      // tinggi dari title ditentukan oleh toolbarHeight
-      // maka isi nilai toolbarHeight sama dengan tinggi dari appbar
-      toolbarHeight: 106,
+    return SliverAppBar(
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 20.0),
+          child: ECircleAvatar(
+              avatarRadius: 30,
+              iconSize: 30,
+              bgCircleAvatar: ColorLib.lightGray,
+              bgIcon: '#C3C9CB'.toColor(),
+              icon: Ionicons.person),
+        )
+      ],
       backgroundColor: Colors.white,
       centerTitle: false,
       elevation: 0.0,
+      pinned: true,
       title: Padding(
         padding: const EdgeInsets.only(right: 15),
         child: Column(
@@ -41,17 +50,9 @@ class DashboardAppBar extends StatelessWidget implements PreferredSize {
           ],
         ),
       ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 20.0),
-          child: ECircleAvatar(
-              avatarRadius: 30,
-              iconSize: 30,
-              bgCircleAvatar: ColorLib.lightGray,
-              bgIcon: '#C3C9CB'.toColor(),
-              icon: Ionicons.person),
-        )
-      ],
+      // tinggi dari title ditentukan oleh toolbarHeight
+      // maka isi nilai toolbarHeight sama dengan tinggi dari appbar
+      toolbarHeight: 106,
     );
   }
 
