@@ -37,7 +37,7 @@ class DashboardGrid extends StatelessWidget {
                             color: ColorLib.lightBlack,
                             fontSize: 14,
                             fontWeight: FontWeight.w400)),
-                  )
+                  ),
                 ],
               ),
           childCount: products.length),

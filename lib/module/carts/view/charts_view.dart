@@ -1,5 +1,7 @@
+import 'package:OpiShop/module/carts/widget/carts_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:OpiShop/core.dart';
+
 import '../controller/carts_controller.dart';
 
 class CartsView extends StatefulWidget {
@@ -9,10 +11,7 @@ class CartsView extends StatefulWidget {
     controller.view = this;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Charts"),
-        actions: const [],
-      ),
+      appBar: const CartAppBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
