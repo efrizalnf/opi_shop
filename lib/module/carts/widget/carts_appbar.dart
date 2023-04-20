@@ -1,12 +1,10 @@
+import 'package:OpiShop/module/carts/widget/bottom_cart_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../utils/color_lib.dart';
 
 class CartAppBar extends StatelessWidget implements PreferredSize {
-  const CartAppBar({
-    super.key,
-  });
+  const CartAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +25,7 @@ class CartAppBar extends StatelessWidget implements PreferredSize {
         )
       ],
       backgroundColor: ColorLib.white,
+      bottom: const BottomCartAppBar(),
       centerTitle: true,
       elevation: 0.0,
       leading: IconButton(
@@ -49,5 +48,5 @@ class CartAppBar extends StatelessWidget implements PreferredSize {
   Widget get child => this;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(98);
 }
