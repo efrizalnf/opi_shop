@@ -51,8 +51,8 @@ class EGridWidget extends StatelessWidget {
           Expanded(
             child: Image.asset(
               "assets/images/logo2.png",
-              width: Get.width * 0.15,
-              height: Get.height * 0.08,
+              width: Get.width * 0.20,
+              height: Get.height * 0.20,
               fit: BoxFit.fill,
             ),
           )

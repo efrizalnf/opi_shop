@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:OpiShop/state_util.dart';
 import '../view/login_view.dart';
 
-class LoginController extends State<LoginView>
-    with ChangeNotifier
-    implements MvcController {
+class LoginController extends State<LoginView> implements MvcController {
   static late LoginController instance;
   late LoginView view;
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -17,14 +16,22 @@ class LoginController extends State<LoginView>
     super.initState();
   }
 
-  bool _loggedIn = false;
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
+  final bool _loggedIn = false;
   bool get loggedIn => _loggedIn;
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
-  Future<User?> login(String email, String password) async {
-    UserCredential userCredential = await firebaseAuth
-        .signInWithEmailAndPassword(email: email, password: password);
-    _loggedIn = true;
+  Future<User?> login() async {
+    UserCredential userCredential =
+        await firebaseAuth.signInWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text);
+    print(userCredential.user?.email);
     return userCredential.user;
   }
 
