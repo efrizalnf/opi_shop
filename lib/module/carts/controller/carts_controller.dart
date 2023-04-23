@@ -5,6 +5,12 @@ import '../view/charts_view.dart';
 class CartsController extends State<CartsView> implements MvcController {
   static late CartsController instance;
   late CartsView view;
+  bool isSelected = false;
+
+  void changeIsSelected() {
+    isSelected = !isSelected;
+    setState(() {});
+  }
 
   @override
   void initState() {

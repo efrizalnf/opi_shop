@@ -8,9 +8,8 @@ class ProductsCartBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 258,
-      padding: const EdgeInsets.all(15),
       child: ListView.builder(
         shrinkWrap: true,
         physics: const ScrollPhysics(),

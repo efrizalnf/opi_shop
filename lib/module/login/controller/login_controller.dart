@@ -31,7 +31,6 @@ class LoginController extends State<LoginView> implements MvcController {
     UserCredential userCredential =
         await firebaseAuth.signInWithEmailAndPassword(
             email: emailController.text, password: passwordController.text);
-    print(userCredential.user?.email);
     return userCredential.user;
   }
 

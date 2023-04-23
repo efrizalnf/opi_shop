@@ -17,18 +17,21 @@ class CartsView extends StatefulWidget {
     return Scaffold(
       backgroundColor: ColorLib.white,
       appBar: const CartAppBar(),
-      body: SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
-        child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              ProductsCartBody(),
-              TextBody(
-                title: 'DELIVERY\nMETHOD',
-              ),
-              DeliveryCartBody()
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: SingleChildScrollView(
+          physics: const ScrollPhysics(),
+          child: ListView(
+            physics: const ScrollPhysics(),
+            shrinkWrap: true,
+            children: [
+              const ProductsCartBody(),
+              const TextBody(title: 'DELIVERY\nMETHOD'),
+              DeliveryCartBody(
+                  isSelected: controller.isSelected,
+                  onTap: () {
+                    controller.changeIsSelected();
+                  }),
             ],
           ),
         ),
