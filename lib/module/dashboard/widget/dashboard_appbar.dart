@@ -26,6 +26,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSize {
       backgroundColor: Colors.white,
       centerTitle: false,
       elevation: 0.0,
+      leadingWidth: 0.0,
       pinned: true,
       title: Padding(
         padding: const EdgeInsets.only(right: 15),

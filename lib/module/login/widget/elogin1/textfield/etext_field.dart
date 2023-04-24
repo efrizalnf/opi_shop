@@ -4,56 +4,55 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ETextField extends StatelessWidget {
-  final Icon? suffixIcon;
-  final String label;
+  final IconButton? suffixIcon;
+  final bool? isObscured;
+  final String hintText;
   final TextEditingController textEditingController;
-
   final Function(String value) onChanged;
 
   const ETextField(
       {super.key,
       this.suffixIcon,
-      required this.label,
+      this.isObscured,
+      required this.hintText,
       required this.textEditingController,
       required this.onChanged});
+
+  String? validation(value) {
+    if (value == null || value.isEmpty) {
+      return '$hintText should not be empty';
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: Get.width * 0.08,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: Get.width * 0.08),
       child: Container(
         height: 44.0,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         decoration: BoxDecoration(
           color: '#CDCDCD'.toColor(),
           borderRadius: const BorderRadius.all(
-            Radius.circular(
-              6.0,
-            ),
+            Radius.circular(6.0),
           ),
         ),
         child: TextFormField(
           controller: textEditingController,
           decoration: InputDecoration(
-            hintText: label,
-            suffixIcon: suffixIcon,
             border: InputBorder.none,
             hintStyle: GoogleFonts.roboto(
               fontWeight: FontWeight.w400,
-              color: '#455154'.toColor(),
+              color: ColorLib.lightBlack,
             ),
+            hintText: hintText,
+            suffixIcon: suffixIcon,
           ),
+          obscureText: (hintText == 'Password') ? true : false,
           onChanged: (value) => onChanged(value),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return '$label shoul not be empty';
-            }
-            return null;
-          },
+          style: GoogleFonts.roboto(color: ColorLib.lightBlack),
+          validator: validation,
         ),
       ),
     );

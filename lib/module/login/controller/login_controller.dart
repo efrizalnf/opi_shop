@@ -23,15 +23,15 @@ class LoginController extends State<LoginView> implements MvcController {
     passwordController.dispose();
   }
 
-  final bool _loggedIn = false;
-  bool get loggedIn => _loggedIn;
+  User? _user;
+  User? get user => _user;
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
-  Future<User?> login() async {
+  void login() async {
     UserCredential userCredential =
         await firebaseAuth.signInWithEmailAndPassword(
             email: emailController.text, password: passwordController.text);
-    return userCredential.user;
+    _user = userCredential.user;
   }
 
   @override

@@ -25,7 +25,7 @@ class LoginView extends StatefulWidget {
                 height: Get.height * 0.09,
               ),
               ETextField(
-                label: 'Email',
+                hintText: 'Email',
                 textEditingController: controller.emailController,
                 onChanged: (value) {},
               ),
@@ -33,13 +33,15 @@ class LoginView extends StatefulWidget {
                 height: Get.height * 0.01,
               ),
               ETextField(
-                label: 'Password',
+                hintText: 'Password',
                 textEditingController: controller.passwordController,
                 onChanged: (value) {},
-                suffixIcon: Icon(
-                  Icons.visibility,
-                  color: Colors.grey[600],
-                ),
+                suffixIcon: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.visibility,
+                      color: Colors.grey[600],
+                    )),
               ),
               SizedBox(
                 height: Get.height * 0.02,
@@ -50,6 +52,8 @@ class LoginView extends StatefulWidget {
                   if (controller.formKey.currentState!.validate()) {
                     controller.login();
                     await Get.to(const HomeView());
+                    controller.emailController.clear();
+                    controller.passwordController.clear();
                   }
                 },
               ),
