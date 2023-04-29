@@ -26,18 +26,11 @@ class DashboardController extends State<DashboardView>
 
   void getProducts() async {
     _products = await DashboardService.getProducts();
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
 }
-
-// class ProductProvider with ChangeNotifier {
-//   List<Product> _products = [];
-//   List<Product> get products => _products;
-
-//   Future<List<Product>> getProducts() async {
-//     return _products = await DashboardService.getProducts();
-//   }
-// }

@@ -1,3 +1,4 @@
+import 'package:OpiShop/utils/color_lib.dart';
 import 'package:flutter/material.dart';
 
 void showErrorDialog(BuildContext context, String message) {
@@ -5,12 +6,15 @@ void showErrorDialog(BuildContext context, String message) {
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: const Text("An error occured"),
         actions: [
           TextButton(
-              onPressed: () => Navigator.pop(context), child: const Text("Ok")),
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Ok"),
+          )
         ],
+        backgroundColor: ColorLib.lightBlack,
         content: Text(message),
+        title: const Text("An error occured"),
       );
     },
   );

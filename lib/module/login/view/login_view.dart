@@ -1,6 +1,8 @@
 import 'package:OpiShop/core.dart';
 import 'package:OpiShop/module/login/widget/elogin1/buttons/elogin_button.dart';
 import 'package:OpiShop/utils/color_lib.dart';
+import 'package:OpiShop/utils/failure.dart';
+import 'package:OpiShop/utils/show_error.dart';
 import 'package:flutter/material.dart';
 import '../widget/elogin1/buttons/esignup_button.dart';
 import '../widget/elogin1/buttons/etext_button.dart';
@@ -50,10 +52,13 @@ class LoginView extends StatefulWidget {
                 label: 'Login',
                 onPressed: () async {
                   if (controller.formKey.currentState!.validate()) {
-                    controller.login();
-                    await Get.to(const HomeView());
-                    controller.emailController.clear();
-                    controller.passwordController.clear();
+                    try {
+                      await controller.login();
+                      controller.emailController.clear();
+                      controller.passwordController.clear();
+                    } on Failure catch (failure) {
+                      showErrorDialog(context, failure.message);
+                    }
                   }
                 },
               ),

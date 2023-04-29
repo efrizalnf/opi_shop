@@ -1,3 +1,5 @@
+import 'package:OpiShop/module/home/view/home_view.dart';
+import 'package:OpiShop/utils/failure.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:OpiShop/state_util.dart';
@@ -27,11 +29,24 @@ class LoginController extends State<LoginView> implements MvcController {
   User? get user => _user;
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
-  void login() async {
-    UserCredential userCredential =
-        await firebaseAuth.signInWithEmailAndPassword(
-            email: emailController.text, password: passwordController.text);
-    _user = userCredential.user;
+  Future<void> login() async {
+    try {
+      await firebaseAuth.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+      await Get.to(const HomeView());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        throw Failure(
+            message:
+                'There is no user record corresponding to this identifier. The user may have been deleted.');
+      } else if (e.code == 'wrong-password') {
+        throw Failure(
+            message:
+                'The password is invalid or the user does not have a password.');
+      }
+    } catch (e) {
+      throw Failure(message: 'There is exception occured');
+    }
   }
 
   @override
