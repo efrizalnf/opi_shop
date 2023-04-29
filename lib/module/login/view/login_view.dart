@@ -1,13 +1,14 @@
 import 'package:OpiShop/core.dart';
-import 'package:OpiShop/module/login/widget/elogin1/buttons/elogin_button.dart';
+import 'package:OpiShop/module/login/widget/buttons/elogin_button.dart';
+import 'package:OpiShop/module/login/widget/buttons/elogin_socmed.dart';
+import 'package:OpiShop/module/login/widget/buttons/esignup_button.dart';
+import 'package:OpiShop/module/login/widget/grid/egrid_widget.dart';
+import 'package:OpiShop/module/login/widget/textfield/etext_field.dart';
 import 'package:OpiShop/utils/color_lib.dart';
 import 'package:OpiShop/utils/failure.dart';
 import 'package:OpiShop/utils/show_error.dart';
 import 'package:flutter/material.dart';
-import '../widget/elogin1/buttons/esignup_button.dart';
-import '../widget/elogin1/buttons/etext_button.dart';
-import '../widget/elogin1/grid/egrid_widget.dart';
-import '../widget/elogin1/textfield/etext_field.dart';
+import 'package:ionicons/ionicons.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -17,37 +18,33 @@ class LoginView extends StatefulWidget {
     return Form(
       key: controller.formKey,
       child: Scaffold(
+        // appBar: AppBar(
+        //   automaticallyImplyLeading: false,
+        // ),
         backgroundColor: ColorLib.white,
         body: SafeArea(
           child: SingleChildScrollView(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const EGridWidget(),
-              SizedBox(
-                height: Get.height * 0.09,
-              ),
+              SizedBox(height: Get.height * 0.09),
               ETextField(
                 hintText: 'Email',
+                isObscured: false,
                 textEditingController: controller.emailController,
                 onChanged: (value) {},
               ),
-              SizedBox(
-                height: Get.height * 0.01,
-              ),
+              SizedBox(height: Get.height * 0.01),
               ETextField(
                 hintText: 'Password',
+                isObscured: controller.isObscured,
                 textEditingController: controller.passwordController,
                 onChanged: (value) {},
-                suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.visibility,
-                      color: Colors.grey[600],
-                    )),
+                suffixIcon: VisibilityButton(onPressed: () {
+                  controller.changeObscured();
+                }),
               ),
-              SizedBox(
-                height: Get.height * 0.02,
-              ),
+              SizedBox(height: Get.height * 0.02),
               EloginButton(
                 label: 'Login',
                 onPressed: () async {
@@ -62,13 +59,21 @@ class LoginView extends StatefulWidget {
                   }
                 },
               ),
-              SizedBox(
-                height: Get.height * 0.02,
+              SizedBox(height: Get.height * 0.02),
+              // ETextButton(
+              //   onPressed: () => Get.to(const LoginWithSocmedView()),
+              // ),
+              SizedBox(height: Get.height * 0.30),
+              const ELoginSocmedButton(
+                label: 'Log In with Google',
+                icon: Ionicons.logo_google,
               ),
-              const ETextButton(),
-              SizedBox(
-                height: Get.height * 0.20,
+              SizedBox(height: Get.height * 0.01),
+              const ELoginSocmedButton(
+                label: 'Log In with Facebook',
+                icon: Ionicons.logo_facebook,
               ),
+              SizedBox(height: Get.height * 0.01),
               const EsignupButton(
                 label: 'Sign Up',
               ),
@@ -81,4 +86,19 @@ class LoginView extends StatefulWidget {
 
   @override
   State<LoginView> createState() => LoginController();
+}
+
+class VisibilityButton extends StatelessWidget {
+  const VisibilityButton({super.key, required this.onPressed});
+  final void Function()? onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(
+        Icons.visibility,
+        color: Colors.grey[600],
+      ),
+    );
+  }
 }

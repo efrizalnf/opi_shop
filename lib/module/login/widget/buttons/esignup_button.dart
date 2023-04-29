@@ -10,10 +10,10 @@ class EsignupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: Get.width * 0.08, right: Get.width * 0.08),
+      padding: EdgeInsets.symmetric(horizontal: Get.width * 0.08),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: '#CDCDCD'.toColor(),
+            backgroundColor: ColorLib.darkGray,
             minimumSize: const Size.fromHeight(44)),
         onPressed: () {},
         child: Row(
@@ -22,14 +22,14 @@ class EsignupButton extends StatelessWidget {
             Text(
               label,
               style: GoogleFonts.roboto(
-                color: const Color(0xFF455154),
+                color: ColorLib.lightBlack,
                 fontWeight: FontWeight.w700,
                 fontSize: 18.0,
               ),
             ),
-            const Icon(
+            Icon(
               Icons.arrow_forward_ios,
-              color: Color(0xFF969FA2),
+              color: '#969FA2'.toColor(),
             )
           ],
         ),

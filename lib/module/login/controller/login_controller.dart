@@ -11,6 +11,11 @@ class LoginController extends State<LoginView> implements MvcController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  bool isObscured = false;
+  void changeObscured() {
+    isObscured = !isObscured;
+    setState(() {});
+  }
 
   @override
   void initState() {
@@ -25,11 +30,8 @@ class LoginController extends State<LoginView> implements MvcController {
     passwordController.dispose();
   }
 
-  User? _user;
-  User? get user => _user;
-  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-
   Future<void> login() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     try {
       await firebaseAuth.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
@@ -43,6 +45,8 @@ class LoginController extends State<LoginView> implements MvcController {
         throw Failure(
             message:
                 'The password is invalid or the user does not have a password.');
+      } else if (e.code == 'invalid-email') {
+        throw Failure(message: 'The email address is badly formatted.');
       }
     } catch (e) {
       throw Failure(message: 'There is exception occured');
@@ -52,3 +56,8 @@ class LoginController extends State<LoginView> implements MvcController {
   @override
   Widget build(BuildContext context) => widget.build(context, this);
 }
+
+
+/*
+ The email address is badly formatted.
+ */

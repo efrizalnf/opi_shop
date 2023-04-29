@@ -24,7 +24,7 @@ class EGridWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Welcome\nto MagicBook",
+                  "Welcome\nto OpiShop",
                   style: GoogleFonts.roboto(
                     color: '#455154'.toColor(),
                     fontWeight: FontWeight.w700,
@@ -37,7 +37,7 @@ class EGridWidget extends StatelessWidget {
                 Text(
                   "Biggest collection of 300+ layouts\nfor iOS prototyping.",
                   style: GoogleFonts.roboto(
-                    color: '#455154'.toColor(),
+                    color: ColorLib.lightBlack,
                     fontWeight: FontWeight.w400,
                     fontSize: 16.0,
                   ),
@@ -50,8 +50,8 @@ class EGridWidget extends StatelessWidget {
           ),
           Expanded(
             child: Image.asset(
-              "assets/images/logo2.png",
-              width: Get.width * 0.20,
+              "assets/images/opi_logo.png",
+              width: Get.width * 0.25,
               height: Get.height * 0.20,
               fit: BoxFit.fill,
             ),

@@ -11,10 +11,10 @@ class EloginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: Get.width * 0.08, right: Get.width * 0.08),
+      padding: EdgeInsets.symmetric(horizontal: Get.width * 0.08),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: '#59B58D'.toColor(),
+            backgroundColor: ColorLib.primaryColor,
             minimumSize: const Size.fromHeight(44)),
         onPressed: onPressed,
         child: Text(

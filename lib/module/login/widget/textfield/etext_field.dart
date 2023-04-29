@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ETextField extends StatelessWidget {
-  final IconButton? suffixIcon;
-  final bool? isObscured;
+  final Widget? suffixIcon;
+  final bool isObscured;
   final String hintText;
   final TextEditingController textEditingController;
   final Function(String value) onChanged;
@@ -13,7 +13,7 @@ class ETextField extends StatelessWidget {
   const ETextField(
       {super.key,
       this.suffixIcon,
-      this.isObscured,
+      required this.isObscured,
       required this.hintText,
       required this.textEditingController,
       required this.onChanged});
@@ -33,7 +33,7 @@ class ETextField extends StatelessWidget {
         height: 44.0,
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         decoration: BoxDecoration(
-          color: '#CDCDCD'.toColor(),
+          color: ColorLib.darkGray,
           borderRadius: const BorderRadius.all(
             Radius.circular(6.0),
           ),
@@ -49,7 +49,7 @@ class ETextField extends StatelessWidget {
             hintText: hintText,
             suffixIcon: suffixIcon,
           ),
-          obscureText: (hintText == 'Password') ? true : false,
+          obscureText: (hintText != 'Password') ? isObscured : !isObscured,
           onChanged: (value) => onChanged(value),
           style: GoogleFonts.roboto(color: ColorLib.lightBlack),
           validator: validation,
