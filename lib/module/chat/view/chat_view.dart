@@ -10,8 +10,9 @@ class ChatView extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Chat"),
         actions: const [],
+        automaticallyImplyLeading: false,
+        title: const Text("Chat"),
       ),
       body: SingleChildScrollView(
         child: Container(

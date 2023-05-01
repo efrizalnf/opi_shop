@@ -8,21 +8,22 @@ class DashboardView extends StatefulWidget {
     controller.view = this;
 
     return ResponsiveLayout(
-        mobileDashboard: MobileDashboard(
-          pageController: controller.pageController,
-          tabController: controller.tabController,
-          products: controller.products,
-        ),
-        tabletDashboard: TabletDashboard(
-          pageController: controller.pageController,
-          tabController: controller.tabController,
-          products: controller.products,
-        ),
-        desktopDashboard: DesktopDashboard(
-          pageController: controller.pageController,
-          tabController: controller.tabController,
-          products: controller.products,
-        ));
+      mobileDashboard: MobileDashboard(
+        pageController: controller.pageController,
+        tabController: controller.tabController,
+        products: controller.products,
+      ),
+      tabletDashboard: TabletDashboard(
+        pageController: controller.pageController,
+        tabController: controller.tabController,
+        products: controller.products,
+      ),
+      desktopDashboard: DesktopDashboard(
+        pageController: controller.pageController,
+        tabController: controller.tabController,
+        products: controller.products,
+      ),
+    );
   }
 
   @override

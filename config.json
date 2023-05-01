@@ -7,6 +7,7 @@
         "dashboard",
         "chat",
         "profile",
-        "carts"
+        "carts",
+        "product_detail"
     ]
 }

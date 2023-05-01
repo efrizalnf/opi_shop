@@ -62,11 +62,12 @@ class ProductsCartBody extends StatelessWidget {
               Column(
                 children: [
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.favorite,
-                        color: ColorLib.lightBlack,
-                      )),
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.favorite,
+                      color: ColorLib.lightBlack,
+                    ),
+                  ),
                   IconButton(
                       onPressed: () {},
                       icon: const Icon(Icons.delete),

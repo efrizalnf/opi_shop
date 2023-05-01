@@ -5,6 +5,11 @@ it means you have to rename it to something more unique.
 */
 export 'package:OpiShop/module/carts/controller/carts_controller.dart';
 export 'package:OpiShop/module/carts/view/charts_view.dart';
+export 'package:OpiShop/module/carts/widget/bottom_cart_appbar.dart';
+export 'package:OpiShop/module/carts/widget/carts_appbar.dart';
+export 'package:OpiShop/module/carts/widget/delivery_cart_body.dart';
+export 'package:OpiShop/module/carts/widget/products_cart_body.dart';
+export 'package:OpiShop/module/carts/widget/text_body.dart';
 export 'package:OpiShop/module/chat/controller/chat_controller.dart';
 export 'package:OpiShop/module/chat/view/chat_view.dart';
 export 'package:OpiShop/module/dashboard/controller/dashboard_controller.dart';
@@ -22,6 +27,14 @@ export 'package:OpiShop/module/home/controller/home_controller.dart';
 export 'package:OpiShop/module/home/view/home_view.dart';
 export 'package:OpiShop/module/login/controller/login_controller.dart';
 export 'package:OpiShop/module/login/view/login_view.dart';
+export 'package:OpiShop/module/login/widget/buttons/elogin_button.dart';
+export 'package:OpiShop/module/login/widget/buttons/elogin_socmed.dart';
+export 'package:OpiShop/module/login/widget/buttons/esignup_button.dart';
+export 'package:OpiShop/module/login/widget/buttons/etext_button.dart';
+export 'package:OpiShop/module/login/widget/grid/egrid_widget.dart';
+export 'package:OpiShop/module/login/widget/textfield/etext_field.dart';
+export 'package:OpiShop/module/product_detail/controller/product_detail_controller.dart';
+export 'package:OpiShop/module/product_detail/view/product_detail_view.dart';
 export 'package:OpiShop/module/profile/controller/profile_controller.dart';
 export 'package:OpiShop/module/profile/view/profile_view.dart';
 export 'package:OpiShop/module/splash/controller/splash_controller.dart';

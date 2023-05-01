@@ -6,10 +6,14 @@ import 'package:ionicons/ionicons.dart';
 
 class ELoginSocmedButton extends StatelessWidget {
   const ELoginSocmedButton(
-      {super.key, required this.label, required this.icon});
+      {super.key,
+      required this.label,
+      required this.icon,
+      required this.onPressed});
 
   final String label;
   final IoniconsData icon;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class ELoginSocmedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: ColorLib.darkGray,
             minimumSize: const Size.fromHeight(44)),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -14,7 +14,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "538839219914-2rfi8dh37k13gdl8hheeiunfqsvug8t3.apps.googleusercontent.com",
+          "client_id": "538839219914-q3ad94h3rbpa7qcrvl69nqlar8rk51rt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -50,7 +50,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "538839219914-2rfi8dh37k13gdl8hheeiunfqsvug8t3.apps.googleusercontent.com",
+          "client_id": "538839219914-gm0vapht4m8t60omeb62b4erasb1d98i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.opishop",
+            "certificate_hash": "d1772871650e2a99a557479bdf86315bf432f63a"
+          }
+        },
+        {
+          "client_id": "538839219914-q3ad94h3rbpa7qcrvl69nqlar8rk51rt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

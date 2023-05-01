@@ -10,8 +10,9 @@ class ProfileView extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
         actions: const [],
+        automaticallyImplyLeading: false,
+        title: const Text("Profile"),
       ),
       body: SingleChildScrollView(
         child: Container(

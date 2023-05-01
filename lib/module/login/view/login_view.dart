@@ -18,9 +18,6 @@ class LoginView extends StatefulWidget {
     return Form(
       key: controller.formKey,
       child: Scaffold(
-        // appBar: AppBar(
-        //   automaticallyImplyLeading: false,
-        // ),
         backgroundColor: ColorLib.white,
         body: SafeArea(
           child: SingleChildScrollView(
@@ -50,7 +47,8 @@ class LoginView extends StatefulWidget {
                 onPressed: () async {
                   if (controller.formKey.currentState!.validate()) {
                     try {
-                      await controller.login();
+                      await controller.signInWithEmail();
+                      await Get.to(const HomeView());
                       controller.emailController.clear();
                       controller.passwordController.clear();
                     } on Failure catch (failure) {
@@ -60,18 +58,19 @@ class LoginView extends StatefulWidget {
                 },
               ),
               SizedBox(height: Get.height * 0.02),
-              // ETextButton(
-              //   onPressed: () => Get.to(const LoginWithSocmedView()),
-              // ),
               SizedBox(height: Get.height * 0.30),
-              const ELoginSocmedButton(
+              ELoginSocmedButton(
                 label: 'Log In with Google',
                 icon: Ionicons.logo_google,
+                onPressed: () async {
+                  await controller.signInWithGoogle();
+                },
               ),
               SizedBox(height: Get.height * 0.01),
-              const ELoginSocmedButton(
+              ELoginSocmedButton(
                 label: 'Log In with Facebook',
                 icon: Ionicons.logo_facebook,
+                onPressed: () {},
               ),
               SizedBox(height: Get.height * 0.01),
               const EsignupButton(

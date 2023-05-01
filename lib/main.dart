@@ -1,5 +1,5 @@
 import 'package:OpiShop/firebase_options.dart';
-import 'package:OpiShop/module/login/view/login_view.dart';
+import 'package:OpiShop/module/product_detail/view/product_detail_view.dart';
 import 'package:OpiShop/shared/theme/theme_dark.dart';
 import 'package:OpiShop/state_util.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: Get.navigatorKey,
       // home: isLogin == true ? const HomeView() : const LoginView(),
-      home: const LoginView(),
+      home: const ProductDetailView(),
     );
   }
 }

@@ -26,17 +26,21 @@ class DashboardGrid extends StatelessWidget {
                   const SizedBox(
                     height: 22,
                   ),
-                  Text(products[index].title,
+                  Text(
+                    products[index].title,
+                    style: GoogleFonts.roboto(
+                        color: ColorLib.lightBlack,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Expanded(
+                    child: Text(
+                      products[index].category as String,
                       style: GoogleFonts.roboto(
                           color: ColorLib.lightBlack,
                           fontSize: 14,
-                          fontWeight: FontWeight.w700)),
-                  Expanded(
-                    child: Text(products[index].category as String,
-                        style: GoogleFonts.roboto(
-                            color: ColorLib.lightBlack,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400)),
+                          fontWeight: FontWeight.w400),
+                    ),
                   ),
                 ],
               ),

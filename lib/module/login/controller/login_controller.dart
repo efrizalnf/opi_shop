@@ -1,8 +1,8 @@
-import 'package:OpiShop/module/home/view/home_view.dart';
 import 'package:OpiShop/utils/failure.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:OpiShop/state_util.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../view/login_view.dart';
 
 class LoginController extends State<LoginView> implements MvcController {
@@ -30,34 +30,39 @@ class LoginController extends State<LoginView> implements MvcController {
     passwordController.dispose();
   }
 
-  Future<void> login() async {
+  Future<User?> signInWithEmail() async {
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    String email = emailController.text;
+    String password = passwordController.text;
+    User? user;
     try {
-      await firebaseAuth.signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
-      await Get.to(const HomeView());
+      user = await firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((value) => value.user);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        throw Failure(
-            message:
-                'There is no user record corresponding to this identifier. The user may have been deleted.');
+        throw Failure(message: e.message as String);
       } else if (e.code == 'wrong-password') {
-        throw Failure(
-            message:
-                'The password is invalid or the user does not have a password.');
+        throw Failure(message: e.message as String);
       } else if (e.code == 'invalid-email') {
-        throw Failure(message: 'The email address is badly formatted.');
+        throw Failure(message: e.message as String);
       }
     } catch (e) {
       throw Failure(message: 'There is exception occured');
     }
+    print('succes login');
+    return user;
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+    final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
 }
-
-
-/*
- The email address is badly formatted.
- */
