@@ -17,7 +17,7 @@ class DashboardGrid extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(6),
                     child: Image.network(
-                      products[index].images,
+                      'https://picsum.photos/seed/picsum/200/300',
                       width: 165,
                       height: 120,
                       fit: BoxFit.fill,
@@ -37,7 +37,7 @@ class DashboardGrid extends StatelessWidget {
                             color: ColorLib.lightBlack,
                             fontSize: 14,
                             fontWeight: FontWeight.w400)),
-                  )
+                  ),
                 ],
               ),
           childCount: products.length),
