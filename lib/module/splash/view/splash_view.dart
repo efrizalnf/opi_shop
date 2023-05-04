@@ -11,19 +11,21 @@ class SplashView extends StatefulWidget {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "images/logo2.png",
-              width: 100,
-              height: 100,
+              "assets/images/logo2.png",
+              width: 120.0,
+              height: 120.0,
+              fit: BoxFit.fill,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(
+              height: 20.0,
+            ),
             SizedBox(
-              width: 20,
-              height: 20,
-              child: CircularProgressIndicator(color: ColorLib.primaryColor),
-            ),
+                width: 30,
+                height: 30,
+                child: CircularProgressIndicator(color: ColorLib.primaryColor)),
           ],
         ),
       ),

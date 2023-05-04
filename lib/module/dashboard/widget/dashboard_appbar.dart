@@ -1,4 +1,4 @@
-import 'package:OpiShop/shared/widget/other/e_circle_avatar.dart';
+import 'package:OpiShop/core.dart';
 import 'package:OpiShop/utils/color_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +11,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSize {
 
   @override
   Widget build(BuildContext context) {
+    DashboardController controller = DashboardController();
     return SliverAppBar(
       actions: [
         Padding(
@@ -41,7 +42,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSize {
               height: 12,
             ),
             Text(
-              'Over 45K Items Available for You',
+              'Hallo ${controller.dataLogin['firstName']}',
               style: GoogleFonts.roboto(
                   color: '#969FA2'.toColor(),
                   fontSize: 14,

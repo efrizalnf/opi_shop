@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:OpiShop/state_util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../helper/const_helper.dart';
+import '../../../state_util.dart';
+import '../../home/view/home_view.dart';
+import '../../login/view/login_view.dart';
 import '../view/splash_view.dart';
 
 class SplashController extends State<SplashView> implements MvcController {
@@ -9,28 +14,19 @@ class SplashController extends State<SplashView> implements MvcController {
   @override
   void initState() {
     instance = this;
+    isLogin();
     super.initState();
-    Future.delayed(const Duration(seconds: 1), () {
-      // just delay for showing this slash page clearer because it too fast
-      // checkSignedIn();
-    });
   }
 
-  // void checkSignedIn() async {
-  //   AuthProvider authProvider = context.read<AuthProvider>();
-  //   bool isLoggedIn = await authProvider.isLoggedIn();
-  //   if (isLoggedIn) {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => HomePage()),
-  //     );
-  //     return;
-  //   }
-  //   Navigator.pushReplacement(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => LoginPage()),
-  //   );
-  // }
+  isLogin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? cekLogin = prefs.getBool(ConstHelper.checkLogin);
+    if (cekLogin == true) {
+      Get.offAll(const HomeView());
+    } else {
+      Get.offAll(const LoginView());
+    }
+  }
 
   @override
   void dispose() => super.dispose();
