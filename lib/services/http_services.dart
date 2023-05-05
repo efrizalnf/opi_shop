@@ -12,8 +12,8 @@ class HttpServices {
     var client = http.Client();
     Map<String, dynamic> result = {};
     Map<String, String> dataLogin = {
-      'username': username,
-      'password': password
+      "username": username,
+      "password": password,
     };
     try {
       final response = await client.post(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core.dart';
+import '../../../core.dart';
 
 Future<bool> showConfirmationDialog() async {
   bool confirm = false;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import '../../core.dart';
+import '../../../core.dart';
 
 Future showInfoDialog(String message) async {
   await showDialog<void>(

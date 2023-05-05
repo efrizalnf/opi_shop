@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../helper/const_helper.dart';
 import '../../../services/http_services.dart';
-import '../../../utils/dialog/show_info_dialog.dart';
+import '../../../shared/widget/dialog/show_info_dialog.dart';
 
 class LoginController extends State<LoginView> implements MvcController {
   static late LoginController instance;
