@@ -1,12 +1,12 @@
 import 'package:OpiShop/firebase_options.dart';
-import 'package:OpiShop/module/product_detail/view/product_detail_view.dart';
+import 'package:OpiShop/module/home/view/home_view.dart';
+import 'package:OpiShop/module/login/view/login_view.dart';
 import 'package:OpiShop/shared/theme/theme_dark.dart';
 import 'package:OpiShop/state_util.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'helper/const_helper.dart';
 
 void main() async {
@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
       theme: getDarkTheme(),
       debugShowCheckedModeBanner: false,
       navigatorKey: Get.navigatorKey,
-      // home: isLogin == true ? const HomeView() : const LoginView(),
-      home: const ProductDetailView(),
+      home: isLogin == true ? const HomeView() : const LoginView(),
+      // home: const LoginView(),
     );
   }
 }

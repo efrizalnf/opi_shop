@@ -1,14 +1,11 @@
 import 'package:OpiShop/core.dart';
-import 'package:OpiShop/module/login/widget/buttons/elogin_button.dart';
-import 'package:OpiShop/module/login/widget/buttons/elogin_socmed.dart';
-import 'package:OpiShop/module/login/widget/buttons/esignup_button.dart';
-import 'package:OpiShop/module/login/widget/grid/egrid_widget.dart';
-import 'package:OpiShop/module/login/widget/textfield/etext_field.dart';
 import 'package:OpiShop/utils/color_lib.dart';
 import 'package:OpiShop/utils/failure.dart';
 import 'package:OpiShop/utils/show_error.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+
+import '../widget/textfield/etext_field.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -37,9 +34,11 @@ class LoginView extends StatefulWidget {
                 isObscured: controller.isObscured,
                 textEditingController: controller.passwordController,
                 onChanged: (value) {},
-                suffixIcon: VisibilityButton(onPressed: () {
-                  controller.changeObscured();
-                }),
+                suffixIcon: VisibilityButton(
+                  onPressed: () {
+                    controller.changeObscured();
+                  },
+                ),
               ),
               SizedBox(height: Get.height * 0.02),
               EloginButton(
@@ -73,8 +72,11 @@ class LoginView extends StatefulWidget {
                 onPressed: () {},
               ),
               SizedBox(height: Get.height * 0.01),
-              const EsignupButton(
+              EsignupButton(
                 label: 'Sign Up',
+                onPressed: () {
+                  Get.to(const SignupView());
+                },
               ),
             ]),
           ),

@@ -5,7 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class EsignupButton extends StatelessWidget {
   final String label;
-  const EsignupButton({super.key, required this.label});
+  final void Function()? onPressed;
+  const EsignupButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,7 @@ class EsignupButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: ColorLib.darkGray,
             minimumSize: const Size.fromHeight(44)),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

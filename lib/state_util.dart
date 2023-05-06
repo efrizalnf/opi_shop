@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Get {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -30,6 +31,15 @@ class Get {
 
   static double get height {
     return MediaQuery.of(currentContext).size.width;
+  }
+
+  static Future<void> launchUrls(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch url');
+    }
   }
 }
 

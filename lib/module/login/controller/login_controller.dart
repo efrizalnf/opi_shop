@@ -35,6 +35,7 @@ class LoginController extends State<LoginView> implements MvcController {
     String email = emailController.text;
     String password = passwordController.text;
     User? user;
+
     try {
       user = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password)
@@ -50,7 +51,7 @@ class LoginController extends State<LoginView> implements MvcController {
     } catch (e) {
       throw Failure(message: 'There is exception occured');
     }
-    print('succes login');
+    debugPrint('succes login');
     return user;
   }
 
