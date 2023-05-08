@@ -20,3 +20,13 @@ class DashboardService {
     }
   }
 }
+
+/*
+https://firebasestorage.googleapis.com/v0/b/fir-flutter-codelab-5e038.appspot.com/o/shoes%2Fphoto-1543508282-6319a3e2621f.jpeg?alt=media&token=885e34fe-0962-42b6-90e3-d80ef2afebd0
+https://firebasestorage.googleapis.com/v0/b/fir-flutter-codelab-5e038.appspot.com/o/shoes%2Fphoto-1547586877-0351a7143cbe.jpeg?alt=media&token=b295248e-0fb4-4675-9bbb-8742ecdd558d
+
+
+*/
+
+String baseImageUrl =
+    'https://firebasestorage.googleapis.com/v0/b/fir-flutter-codelab-5e038.appspot.com/o/shoes%2F';
